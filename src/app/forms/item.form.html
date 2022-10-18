@@ -1,0 +1,7 @@
+<entity-form [formGroup]="form" [form]="form">
+    <mat-form-field class="my4">
+        <mat-label>Description</mat-label>
+        <input formControlName="description" matInput>
+        <mat-error *ngIf="description?.errors?.required">Description is required</mat-error>
+    </mat-form-field>
+</entity-form>

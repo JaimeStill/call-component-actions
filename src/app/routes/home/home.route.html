@@ -1,0 +1,20 @@
+<mat-toolbar>
+    <span fxFlex>Items</span>
+    <button mat-stroked-button
+            (click)="addItem()">
+        Add Item
+    </button>
+</mat-toolbar>
+<section *ngIf="itemApi.entities?.length > 0"
+         fxLayout="row | wrap"
+         fxLayoutAlign="start start"
+         class="p8">
+    <card *ngFor="let item of itemApi.entities"
+          options="card-outline-divider rounded background-card"
+          [padding]="8">
+        <p class="m4 mat-subheading-2">{{item.name}}</p>
+        <p class="m4">{{item.description}}</p>
+    </card>
+</section>
+<p *ngIf="!(itemApi.entities?.length > 0)"
+   class="m8 mat-subheading-2">No Items Available</p>

@@ -1,0 +1,27 @@
+<div class="mat-typography">
+    <h2 mat-dialog-title>
+        <span *ngIf="item?.id > 0">Update Item</span>
+        <span *ngIf="!(item?.id > 0)">Add Item</span>
+    </h2>
+    <mat-dialog-content>
+        <item-editor #editor
+                     [item]="item"
+                     (saved)="saved($event)"></item-editor>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button
+                color="primary"
+                [disabled]="editor.form?.invalid || !(editor.storage?.hasState)"
+                (click)="editor.save()">
+            Save Item
+        </button>
+        <button mat-button
+                class="color-blue"
+                [disabled]="!(editor.storage?.hasState)"
+                (click)="editor.clearStorage()">
+            Clear Cache
+        </button>
+        <button mat-button
+                mat-dialog-close>Cancel</button>
+    </mat-dialog-actions>
+</div>
