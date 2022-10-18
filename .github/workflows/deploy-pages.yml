@@ -5,7 +5,8 @@ name: Deploy Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   paths-ignore:
     - .angular
     - node_modules
@@ -13,7 +14,6 @@ on:
     - .editorconfig
     - .gitignore
     - angular.json
-    - install-deps.cmd
     - package-lock.json
     - README.md
 
